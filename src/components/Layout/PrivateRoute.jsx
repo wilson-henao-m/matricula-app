@@ -6,7 +6,7 @@ export default function PrivateRoute({ children }) {
   if (loadingAuth) {
     return <div>Cargando...</div>;
   }
-  console.log('PrivateRoute: Usuario actual:', user);
+
   if (!user) {
     return <Navigate to="/login" replace />;
   }

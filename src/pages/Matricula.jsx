@@ -5,7 +5,6 @@ import { DataContext } from '../context/DataContext.js';
 import CustomSwal from '../utils/CustomSwal';
 
 export default function Matricula() {
-    console.log('Matricula: renderizando componente', DataContext);
   const { user, updateUser, refreshUser } = useAuth();
   const { cursos, profesores, salones, matricularUsuario, loading, error } = useContext(DataContext);
 
@@ -14,7 +13,7 @@ export default function Matricula() {
 
   useEffect(() => {
     if (!user) {
-      setListaCursos([]); 
+      setListaCursos([]);
       return;
     }
     // Filtrar todos los cursos del contexto por la carrera del usuario:

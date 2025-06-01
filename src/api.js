@@ -98,7 +98,6 @@ export async function getCursosApi(carrera = null) {
 export async function getCursoByIdApi(cursoId) {
   const url = `${API_BASE_URL}/cursos/${String(cursoId)}`;
   const resp = await fetch(url);
-  console.log('Obteniendo curso:', cursoId, url);
   if (!resp.ok) throw new Error('Error al obtener curso');
   return resp.json();
 }
@@ -107,7 +106,6 @@ export async function getCursoByIdApi(cursoId) {
 export async function updateCursoApi(cursoId, updatedFields) {
   const url = API_BASE_URL + '/cursos/' + String(cursoId);
   try {
-    console.log('[updateCursoApi] PATCH', url, 'body:', updatedFields, 'typeof cursoId:', typeof cursoId, 'typeof updatedFields:', typeof updatedFields);
     const resp = await fetch(url, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },

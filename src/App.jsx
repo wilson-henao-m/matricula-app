@@ -18,8 +18,6 @@ function App() {
     return <div>Cargando...</div>;
   }
 
-  console.log('App: Usuario actual:', user);
-
   return (
     <BrowserRouter>
       <Routes>

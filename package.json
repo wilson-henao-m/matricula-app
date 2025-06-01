@@ -9,7 +9,9 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "json-server": "json-server --watch db.json --port 4000",
-    "start": "json-server --watch db.json --port 4000"
+    "start": "json-server --watch db.json --port 4000",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -31,9 +33,11 @@
     "eslint": "^9.25.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
+    "gh-pages": "^6.3.0",
     "globals": "^16.0.0",
     "json-server": "^1.0.0-beta.3",
     "tailwindcss": "^4.1.8",
     "vite": "^6.3.5"
-  }
+  },
+  "homepage": "https://wilson-henao-m.github.io/matricula-app"
 }
