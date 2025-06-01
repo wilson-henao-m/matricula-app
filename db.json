@@ -1,0 +1,585 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nombre": "Estudiante Demo",
+      "email": "demo@uni.edu",
+      "password": "password123",
+      "rol": "estudiante",
+      "carrera": "ingenieria_sistemas",
+      "creditosMatriculados": 5,
+      "matriculas": [
+        {
+          "cursoId": "4",
+          "horarioId": 7
+        }
+      ]
+    }
+  ],
+  "profesores": [
+    {
+      "id": "1",
+      "nombre": "Dr. Ana Gómez"
+    },
+    {
+      "id": "2",
+      "nombre": "Ing. Carlos Torres"
+    },
+    {
+      "id": "3",
+      "nombre": "Dr. Juan Rodríguez"
+    },
+    {
+      "id": "4",
+      "nombre": "Ing. Marta Rodríguez"
+    },
+    {
+      "id": "5",
+      "nombre": "Dr. Pedro Rodríguez"
+    },
+    {
+      "id": "6",
+      "nombre": "Ing. Laura Pérez"
+    },
+    {
+      "id": "7",
+      "nombre": "Dr. Luis Fernández"
+    },
+    {
+      "id": "8",
+      "nombre": "Ing. Ana Rodríguez"
+    },
+    {
+      "id": "9",
+      "nombre": "Dr. Carlos Rodríguez"
+    },
+    {
+      "id": "10",
+      "nombre": "Ing. María Fernández"
+    }
+  ],
+  "salones": [
+    {
+      "id": "1",
+      "codigo": "S1"
+    },
+    {
+      "id": "2",
+      "codigo": "S2"
+    },
+    {
+      "id": "3",
+      "codigo": "S3"
+    },
+    {
+      "id": "4",
+      "codigo": "S4"
+    },
+    {
+      "id": "5",
+      "codigo": "S5"
+    },
+    {
+      "id": "6",
+      "codigo": "S6"
+    },
+    {
+      "id": "7",
+      "codigo": "S7"
+    }
+  ],
+  "cursos": [
+    {
+      "id": "1",
+      "nombre": "Algoritmos y Estructuras de Datos",
+      "codigo": "SIS101",
+      "creditos": 4,
+      "carrera": "ingenieria_sistemas",
+      "cuposMax": 20,
+      "matriculados": 19,
+      "horarios": [
+        {
+          "id": 1,
+          "dia": "Lunes",
+          "horaInicio": "07:00",
+          "horaFin": "09:00",
+          "profesorId": 1,
+          "salonId": 1,
+          "cupoOcupado": 8
+        },
+        {
+          "id": 2,
+          "dia": "Miércoles",
+          "horaInicio": "10:00",
+          "horaFin": "12:00",
+          "profesorId": 1,
+          "salonId": 2,
+          "cupoOcupado": 8
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "nombre": "Bases de Datos",
+      "codigo": "SIS102",
+      "creditos": 3,
+      "carrera": "ingenieria_sistemas",
+      "cuposMax": 15,
+      "matriculados": 14,
+      "horarios": [
+        {
+          "id": 3,
+          "dia": "Martes",
+          "horaInicio": "08:00",
+          "horaFin": "10:00",
+          "profesorId": 2,
+          "salonId": 3,
+          "cupoOcupado": 12
+        },
+        {
+          "id": 4,
+          "dia": "Jueves",
+          "horaInicio": "14:00",
+          "horaFin": "16:00",
+          "profesorId": 2,
+          "salonId": 1,
+          "cupoOcupado": 0
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "nombre": "Programación Avanzada",
+      "codigo": "SIS103",
+      "creditos": 4,
+      "carrera": "ingenieria_sistemas",
+      "cuposMax": 20,
+      "matriculados": 20,
+      "horarios": [
+        {
+          "id": "5",
+          "dia": "Lunes",
+          "horaInicio": "09:00",
+          "horaFin": "11:00",
+          "profesorId": "3",
+          "salonId": "4",
+          "cupoOcupado": 15
+        },
+        {
+          "id": "6",
+          "dia": "Miércoles",
+          "horaInicio": "11:00",
+          "horaFin": "13:00",
+          "profesorId": "3",
+          "salonId": "5",
+          "cupoOcupado": 3
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "nombre": "Ingeniería de Software",
+      "codigo": "SIS104",
+      "creditos": 5,
+      "carrera": "ingenieria_sistemas",
+      "cuposMax": 20,
+      "matriculados": 18,
+      "horarios": [
+        {
+          "id": 7,
+          "dia": "Martes",
+          "horaInicio": "10:00",
+          "horaFin": "12:00",
+          "profesorId": 4,
+          "salonId": 6,
+          "cupoOcupado": 15
+        },
+        {
+          "id": 8,
+          "dia": "Jueves",
+          "horaInicio": "16:00",
+          "horaFin": "18:00",
+          "profesorId": 4,
+          "salonId": 7,
+          "cupoOcupado": 2
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "nombre": "Redes de Computadoras",
+      "codigo": "SIS105",
+      "creditos": 3,
+      "carrera": "ingenieria_sistemas",
+      "cuposMax": 20,
+      "matriculados": 17,
+      "horarios": [
+        {
+          "id": 9,
+          "dia": "Lunes",
+          "horaInicio": "13:00",
+          "horaFin": "15:00",
+          "profesorId": 5,
+          "salonId": 1,
+          "cupoOcupado": 15
+        },
+        {
+          "id": 10,
+          "dia": "Miércoles",
+          "horaInicio": "15:00",
+          "horaFin": "17:00",
+          "profesorId": 5,
+          "salonId": 2,
+          "cupoOcupado": 0
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "nombre": "Sistemas Operativos",
+      "codigo": "SIS106",
+      "creditos": 4,
+      "carrera": "ingenieria_sistemas",
+      "cuposMax": 18,
+      "matriculados": 18,
+      "horarios": [
+        {
+          "id": 11,
+          "dia": "Martes",
+          "horaInicio": "12:00",
+          "horaFin": "14:00",
+          "profesorId": 6,
+          "salonId": 3,
+          "cupoOcupado": 16
+        },
+        {
+          "id": 12,
+          "dia": "Jueves",
+          "horaInicio": "14:00",
+          "horaFin": "16:00",
+          "profesorId": 6,
+          "salonId": 4,
+          "cupoOcupado": 2
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "nombre": "Bases de Datos",
+      "codigo": "SIS107",
+      "creditos": 3,
+      "carrera": "ingenieria_sistemas",
+      "cuposMax": 18,
+      "matriculados": 18,
+      "horarios": [
+        {
+          "id": 13,
+          "dia": "Viernes",
+          "horaInicio": "10:00",
+          "horaFin": "12:00",
+          "profesorId": 7,
+          "salonId": 5,
+          "cupoOcupado": 17
+        },
+        {
+          "id": 14,
+          "dia": "Jueves",
+          "horaInicio": "14:00",
+          "horaFin": "16:00",
+          "profesorId": 7,
+          "salonId": 6,
+          "cupoOcupado": 1
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "nombre": "Inteligencia Artificial",
+      "codigo": "SIS108",
+      "creditos": 4,
+      "carrera": "ingenieria_sistemas",
+      "cuposMax": 20,
+      "matriculados": 19,
+      "horarios": [
+        {
+          "id": 15,
+          "dia": "Lunes",
+          "horaInicio": "16:00",
+          "horaFin": "18:00",
+          "profesorId": 8,
+          "salonId": 7,
+          "cupoOcupado": 18
+        },
+        {
+          "id": 16,
+          "dia": "Miércoles",
+          "horaInicio": "14:00",
+          "horaFin": "16:00",
+          "profesorId": 8,
+          "salonId": 1,
+          "cupoOcupado": 1
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "nombre": "Programación Orientada a Objetos",
+      "codigo": "SIS109",
+      "creditos": 3,
+      "carrera": "ingenieria_sistemas",
+      "cuposMax": 20,
+      "matriculados": 15,
+      "horarios": [
+        {
+          "id": 17,
+          "dia": "Martes",
+          "horaInicio": "09:00",
+          "horaFin": "11:00",
+          "profesorId": 9,
+          "salonId": 2,
+          "cupoOcupado": 15
+        },
+        {
+          "id": 18,
+          "dia": "Jueves",
+          "horaInicio": "11:00",
+          "horaFin": "13:00",
+          "profesorId": 9,
+          "salonId": 3,
+          "cupoOcupado": 0
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "nombre": "Redes de Computadoras",
+      "codigo": "SIS110",
+      "creditos": 4,
+      "carrera": "ingenieria_sistemas",
+      "cuposMax": 21,
+      "matriculados": 19,
+      "horarios": [
+        {
+          "id": 19,
+          "dia": "Viernes",
+          "horaInicio": "14:00",
+          "horaFin": "16:00",
+          "profesorId": 10,
+          "salonId": 4,
+          "cupoOcupado": 18
+        },
+        {
+          "id": 20,
+          "dia": "Jueves",
+          "horaInicio": "16:00",
+          "horaFin": "18:00",
+          "profesorId": 10,
+          "salonId": 5,
+          "cupoOcupado": 1
+        }
+      ]
+    }
+  ],
+  "horarios": [
+    {
+      "id": "1",
+      "cursoId": 1,
+      "dia": "Lunes",
+      "horaInicio": "07:00",
+      "horaFin": "09:00",
+      "profesorId": 1,
+      "salonId": 1,
+      "cupoOcupado": 10
+    },
+    {
+      "id": "2",
+      "cursoId": 1,
+      "dia": "Miércoles",
+      "horaInicio": "10:00",
+      "horaFin": "12:00",
+      "profesorId": 1,
+      "salonId": 2,
+      "cupoOcupado": 9
+    },
+    {
+      "id": "3",
+      "cursoId": 2,
+      "dia": "Martes",
+      "horaInicio": "08:00",
+      "horaFin": "10:00",
+      "profesorId": 2,
+      "salonId": 3,
+      "cupoOcupado": 14
+    },
+    {
+      "id": "4",
+      "cursoId": 2,
+      "dia": "Jueves",
+      "horaInicio": "14:00",
+      "horaFin": "16:00",
+      "profesorId": 2,
+      "salonId": 1,
+      "cupoOcupado": 0
+    },
+    {
+      "id": "5",
+      "cursoId": 3,
+      "dia": "Lunes",
+      "horaInicio": "09:00",
+      "horaFin": "11:00",
+      "profesorId": 3,
+      "salonId": 4,
+      "cupoOcupado": 15
+    },
+    {
+      "id": "6",
+      "cursoId": 3,
+      "dia": "Miércoles",
+      "horaInicio": "11:00",
+      "horaFin": "13:00",
+      "profesorId": 3,
+      "salonId": 5,
+      "cupoOcupado": 5
+    },
+    {
+      "id": "7",
+      "cursoId": 4,
+      "dia": "Martes",
+      "horaInicio": "10:00",
+      "horaFin": "12:00",
+      "profesorId": 4,
+      "salonId": 6,
+      "cupoOcupado": 16
+    },
+    {
+      "id": "8",
+      "cursoId": 4,
+      "dia": "Jueves",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "profesorId": 4,
+      "salonId": 7,
+      "cupoOcupado": 2
+    },
+    {
+      "id": "9",
+      "cursoId": 5,
+      "dia": "Lunes",
+      "horaInicio": "13:00",
+      "horaFin": "15:00",
+      "profesorId": 5,
+      "salonId": 1,
+      "cupoOcupado": 15
+    },
+    {
+      "id": "10",
+      "cursoId": 5,
+      "dia": "Miércoles",
+      "horaInicio": "15:00",
+      "horaFin": "17:00",
+      "profesorId": 5,
+      "salonId": 2,
+      "cupoOcupado": 2
+    },
+    {
+      "id": "11",
+      "cursoId": 6,
+      "dia": "Martes",
+      "horaInicio": "12:00",
+      "horaFin": "14:00",
+      "profesorId": 6,
+      "salonId": 3,
+      "cupoOcupado": 16
+    },
+    {
+      "id": "12",
+      "cursoId": 6,
+      "dia": "Jueves",
+      "horaInicio": "14:00",
+      "horaFin": "16:00",
+      "profesorId": 6,
+      "salonId": 4,
+      "cupoOcupado": 2
+    },
+    {
+      "id": "13",
+      "cursoId": 7,
+      "dia": "Viernes",
+      "horaInicio": "10:00",
+      "horaFin": "12:00",
+      "profesorId": 7,
+      "salonId": 5,
+      "cupoOcupado": 17
+    },
+    {
+      "id": "14",
+      "cursoId": 7,
+      "dia": "Jueves",
+      "horaInicio": "14:00",
+      "horaFin": "16:00",
+      "profesorId": 7,
+      "salonId": 6,
+      "cupoOcupado": 1
+    },
+    {
+      "id": "15",
+      "cursoId": 8,
+      "dia": "Lunes",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "profesorId": 8,
+      "salonId": 7,
+      "cupoOcupado": 18
+    },
+    {
+      "id": "16",
+      "cursoId": 8,
+      "dia": "Miércoles",
+      "horaInicio": "14:00",
+      "horaFin": "16:00",
+      "profesorId": 8,
+      "salonId": 1,
+      "cupoOcupado": 1
+    },
+    {
+      "id": "17",
+      "cursoId": 9,
+      "dia": "Martes",
+      "horaInicio": "09:00",
+      "horaFin": "11:00",
+      "profesorId": 9,
+      "salonId": 2,
+      "cupoOcupado": 15
+    },
+    {
+      "id": "18",
+      "cursoId": 9,
+      "dia": "Jueves",
+      "horaInicio": "11:00",
+      "horaFin": "13:00",
+      "profesorId": 9,
+      "salonId": 3,
+      "cupoOcupado": 0
+    },
+    {
+      "id": "19",
+      "cursoId": 10,
+      "dia": "Viernes",
+      "horaInicio": "14:00",
+      "horaFin": "16:00",
+      "profesorId": 10,
+      "salonId": 4,
+      "cupoOcupado": 18
+    },
+    {
+      "id": "20",
+      "cursoId": 10,
+      "dia": "Jueves",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "profesorId": 10,
+      "salonId": 5,
+      "cupoOcupado": 1
+    }
+  ]
+}
