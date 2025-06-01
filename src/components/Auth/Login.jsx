@@ -11,9 +11,9 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = login(email, password);
+    const res = await login(email, password);
     if (res.success) {
       navigate('/dashboard');
     } else {
@@ -74,7 +74,7 @@ export default function Login() {
           </div>
           <button
             type="submit"
-            className="w-full bg-unilibre-red text-white py-3 rounded-lg cursor-pointer font-bold hover:bg-unilibre-yellow transition focus:outline-none focus:ring-2 focus:ring-unilibre-red shadow-lg disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed"
+            className="w-full bg-unilibre-red text-white py-3 rounded-lg cursor-pointer font-bold hover:bg-unilibre-yellow transition shadow-lg disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed"
           >
             Entrar
           </button>

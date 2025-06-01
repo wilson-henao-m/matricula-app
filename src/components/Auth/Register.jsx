@@ -106,7 +106,7 @@ export default function Register() {
           </div>
           <button
             type="submit"
-            className="w-full bg-unilibre-red text-white py-3 rounded-lg cursor-pointer font-bold hover:bg-unilibre-yellow transition focus:outline-none focus:ring-2 focus:ring-unilibre-red shadow-lg disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed"
+            className="w-full bg-unilibre-red text-white py-3 rounded-lg cursor-pointer font-bold hover:bg-unilibre-yellow transition shadow-lg disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed"
           >
             Registrarse
           </button>
