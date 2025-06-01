@@ -55,7 +55,7 @@ function App() {
         </Route>
 
         {/* Catch-all: cualquier ruta desconocida muestra 404 */}
-        <Route path="*" element={<div>Página no encontrada</div>} />
+        <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>
   );
