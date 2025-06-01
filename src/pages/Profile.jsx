@@ -8,6 +8,7 @@ export default function Profile() {
   const { error, loading } = useContext(DataContext);
   const [nombre, setNombre] = useState(user.nombre);
   const [password, setPassword] = useState(user.password);
+  const [showPassword, setShowPassword] = useState(false);
 
   if (loading) {
     return (
@@ -51,6 +52,7 @@ export default function Profile() {
             className="w-full border border-gray-200 px-3 py-2 rounded bg-[#f6f8f9] text-black"
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
+            disabled
           />
         </div>
         <div className="mb-4">
@@ -73,21 +75,37 @@ export default function Profile() {
         </div>
         <div className="mb-6">
           <label className="block mb-1 font-semibold text-sm text-gray-700">Contraseña</label>
-          <input
-            type="password"
-            className="w-full border border-gray-200 px-3 py-2 rounded bg-[#f6f8f9] text-black"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              className="w-full border border-gray-200 px-3 py-2 rounded bg-[#f6f8f9] text-black pr-10"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              disabled
+            />
+            <button
+              type="button"
+              className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer text-gray-500 hover:text-unilibre-red focus:outline-none"
+              tabIndex={-1}
+              onClick={() => setShowPassword((v) => !v)}
+              // disabled
+            >
+              {showPassword ? (
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A10.05 10.05 0 0112 19c-5.523 0-10-4.477-10-10 0-1.657.403-3.22 1.125-4.575M15 12a3 3 0 11-6 0 3 3 0 016 0zm6.364-2.364A9.956 9.956 0 0021.875 7.425M9.88 9.88a3 3 0 104.24 4.24" /></svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0zm2.121-2.121A9.969 9.969 0 0121.875 7.425M4.22 4.22l15.56 15.56" /></svg>
+              )}
+            </button>
+          </div>
         </div>
-        <div className="flex justify-center">
+        {/* <div className="flex justify-center">
           <button
             type="submit"
             className="bg-unilibre-red text-white px-4 py-2 cursor-pointer rounded hover:bg-unilibre-yellow transition font-semibold"
           >
             Guardar cambios
           </button>
-        </div>
+        </div> */}
       </form>
     </div>
   );

@@ -8,7 +8,7 @@ import {
 } from '../api-firebase';
 
 export function useAuth() {
-  const { user, setUser, loadingAuth } = useContext(AuthContext);
+  const { user, setUser, logout, loadingAuth } = useContext(AuthContext);
 
   // Login usando Firestore
   const login = async (email, password) => {
@@ -84,6 +84,7 @@ export function useAuth() {
     register,
     updateUser,
     refreshUser,
+    logout,
     loadingAuth
   };
 }

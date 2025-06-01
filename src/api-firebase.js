@@ -1,4 +1,3 @@
-// src/api-firebase.js
 import { db } from './firebase';
 import {
   collection, doc, getDoc, getDocs, updateDoc, addDoc, query, where
@@ -90,5 +89,3 @@ export async function getSalonesFirebase() {
   const snapshot = await getDocs(salonesCol);
   return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 }
-
-// Puedes agregar funciones similares para otros recursos si es necesario.

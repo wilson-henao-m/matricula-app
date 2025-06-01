@@ -1,5 +1,4 @@
-// src/pages/Matricula.jsx
-import React, { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { DataContext } from '../context/DataContext.js';
 import CustomSwal from '../utils/CustomSwal';
@@ -107,6 +106,17 @@ export default function Matricula() {
         return;
       }
 
+      // Validación: no permitir matricular el mismo curso en otro horario
+      const yaMatriculadoEnCurso = user.matriculas.some(m => String(m.cursoId) === String(curso.id));
+      if (yaMatriculadoEnCurso) {
+        await CustomSwal.fire({
+          icon: 'warning',
+          title: 'Ya tienes este curso matriculado',
+          text: 'No puedes matricular el mismo curso en más de un horario. Si deseas cambiar de horario, primero elimina la matrícula actual.',
+        });
+        return;
+      }
+
       // 2) Mostrar SweetAlert2 de confirmación
       const result = await CustomSwal.fire({
         title: `¿Confirmas matrícula?`,
@@ -170,6 +180,52 @@ export default function Matricula() {
     }
   };
 
+  // Eliminar matrícula de un curso
+//   const handleEliminarMatricula = async (curso, horario) => {
+//     const result = await CustomSwal.fire({
+//       title: '¿Eliminar matrícula?',
+//       html: `<p>¿Estás seguro de que deseas eliminar la matrícula de <strong>${curso.nombre}</strong> (${curso.codigo})<br/>Horario: <strong>${horario.dia} ${horario.horaInicio} - ${horario.horaFin}</strong>?</p>`,
+//       icon: 'warning',
+//       showCancelButton: true,
+//       confirmButtonText: 'Sí, eliminar',
+//       cancelButtonText: 'Cancelar',
+//     });
+//     if (!result.isConfirmed) return;
+//     try {
+//       // 1. Actualizar usuario
+//       const nuevasMatriculas = user.matriculas.filter(m => !(String(m.cursoId) === String(curso.id) && String(m.horarioId) === String(horario.id)));
+//       const nuevosCreditos = user.creditosMatriculados - curso.creditos;
+//       await updateUser({
+//         matriculas: nuevasMatriculas,
+//         creditosMatriculados: nuevosCreditos < 0 ? 0 : nuevosCreditos
+//       });
+//       // 2. Liberar cupo en Firestore para el horario y curso
+//       if (typeof horario.id !== 'undefined' && typeof curso.id !== 'undefined') {
+//         const { getHorarioByIdFirebase, updateHorarioFirebase, getCursoByIdFirebase, updateCursoFirebase } = await import('../api-firebase');
+//         // Obtener valores actualizados
+//         const horarioActual = await getHorarioByIdFirebase(String(horario.id));
+//         const cursoActual = await getCursoByIdFirebase(String(curso.id));
+//         const cupoOcupadoActual = typeof horarioActual.cupoOcupado === 'number' ? horarioActual.cupoOcupado : 1;
+//         const matriculadosActual = typeof cursoActual.matriculados === 'number' ? cursoActual.matriculados : 1;
+//         await updateHorarioFirebase(String(horario.id), { cupoOcupado: Math.max(0, cupoOcupadoActual - 1) });
+//         await updateCursoFirebase(String(curso.id), { matriculados: Math.max(0, matriculadosActual - 1) });
+//       }
+//       await refreshUser();
+//       await CustomSwal.fire({
+//         icon: 'success',
+//         title: 'Matrícula eliminada',
+//         text: `Se eliminó la matrícula de ${curso.nombre}.`
+//       });
+//     } catch (err) {
+//       console.error('Error al eliminar matrícula:', err);
+//       await CustomSwal.fire({
+//         icon: 'error',
+//         title: 'Error',
+//         text: 'No se pudo eliminar la matrícula. Intenta de nuevo.'
+//       });
+//     }
+//   };
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold mb-6 text-black">Matricular Materias</h1>
@@ -217,18 +273,34 @@ export default function Matricula() {
                     </p>
                     <p><span className="font-semibold text-sm">Cupos:</span> <span className="font-normal text-black">{cuposRestantes}</span></p>
                   </div>
-                  <button
-                    type="button"
-                    disabled={!!yaMat || cuposRestantes <= 0 || loadingMatricula}
-                    onClick={(ev) => handleMatricular(ev, curso, h)}
-                    className={`px-4 py-2 rounded font-semibold border transition
-                      ${yaMat || cuposRestantes <= 0 || loadingMatricula
-                        ? 'bg-gray-200 text-gray-400 border-gray-200 cursor-not-allowed'
-                        : 'bg-white cursor-pointer text-unilibre-red border-unilibre-red hover:bg-unilibre-yellow hover:text-white hover:border-unilibre-yellow'}
-                    `}
-                  >
-                    {loadingMatricula ? 'Procesando...' : yaMat ? 'Ya matriculado' : 'Matricular'}
-                  </button>
+                  <div className="flex items-center">
+                    <button
+                      type="button"
+                      disabled={!!yaMat || cuposRestantes <= 0 || loadingMatricula}
+                      onClick={(ev) => handleMatricular(ev, curso, h)}
+                      className={`px-4 py-2 rounded font-semibold border transition
+                        ${yaMat || cuposRestantes <= 0 || loadingMatricula
+                          ? 'bg-gray-200 text-gray-400 border-gray-200 cursor-not-allowed'
+                          : 'bg-white cursor-pointer text-unilibre-red border-unilibre-red hover:bg-unilibre-yellow hover:text-white hover:border-unilibre-yellow'}
+                      `}
+                    >
+                      {loadingMatricula ? 'Procesando...' : yaMat ? 'Ya matriculado' : 'Matricular'}
+                    </button>
+                    {/* {yaMat && (
+                      <button
+                        type="button"
+                        className="ml-2 p-2 rounded-full border border-red-400 text-red-600 bg-white hover:bg-red-100 transition cursor-pointer"
+                        disabled={loadingMatricula}
+                        onClick={() => handleEliminarMatricula(curso, h)}
+                        title="Eliminar matrícula"
+                        aria-label="Eliminar matrícula"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </button>
+                    )} */}
+                  </div>
                 </div>
               );
             })}

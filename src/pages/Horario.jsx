@@ -1,5 +1,4 @@
-// src/pages/Horario.jsx
-import React, { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { DataContext } from '../context/DataContext.js';
 
