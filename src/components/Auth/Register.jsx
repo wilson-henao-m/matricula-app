@@ -18,6 +18,10 @@ export default function Register() {
       setError('Todos los campos son obligatorios.');
       return;
     }
+    if (!/^[^@\s]+@libre\.co$/.test(email)) {
+      setError('El correo debe ser institucional y terminar en @libre.co');
+      return;
+    }
     const res = register({ nombre, email, password, carrera: 'ingenieria_sistemas' });
     if (res.success) {
       navigate('/dashboard');
@@ -83,7 +87,7 @@ export default function Register() {
               onChange={(e) => setEmail(e.target.value)}
               required
               autoComplete="email"
-              placeholder="usuario@universidad.edu"
+              placeholder="usuario@libre.co"
             />
           </div>
           <div className="flex flex-col gap-2">

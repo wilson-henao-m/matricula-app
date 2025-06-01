@@ -57,7 +57,7 @@ export default function Login() {
               onChange={(e) => setEmail(e.target.value)}
               required
               autoComplete="email"
-              placeholder="usuario@universidad.edu"
+              placeholder="usuario@libre.co"
             />
           </div>
           <div className="flex flex-col gap-2">
